@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    {{ post.get_category_display }} - {{ post.created }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.content }}</p>
+ 
+ 
+  </div>
+</div>
+    <br>
+
+
+    <form action="{% url 'post-update' post.pk%}" method="get">
+      
+      {% csrf_token %}
+      <a href="{% url 'post-update' post.id %}"><button>Редактировать</button></a>
+      </form>
+      <br>
+
+  </div>
+</div>
+    <br>
+    <form action="{% url 'post-confirm-delete' post.pk%}" method="get">
+      
+    {% csrf_token %}
+    <a href="{% url 'post-confirm-delete' post.id %}"><button>Удалить пост</button></a>
+    </form>
+    <br>
+
+  </div>
+</div>
+    <br>
+
+    <a href="{% url 'index-page' %}"><- Назад</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <p>Вы действительно хотите удалить этот пост?</p>
+    <form action="{% url 'post-confirm-delete' post.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" name="delete" value="Да, удалить" class="btn btn-danger">
+        <a href="{% url 'post-detail' post.id %}" class="btn btn-default">Нет, отменить</a>
+    </form>
+{% endblock %}

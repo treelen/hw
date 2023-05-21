@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1>Это страница контактов</h1>
+
+<button type="button" class="btn btn-dark btn-lg text-light">
+    <a href="{% url 'index-page' %}" style="text-decoration: none; color: white;">Главная</a>
+</button>
+
+<button type="button" class="btn btn-secondary btn-lg text-dark">
+    <a href="{% url 'about-page' %}" style="text-decoration: none; color: black;">О нас</a>
+</button>
+
+{% endblock %}
